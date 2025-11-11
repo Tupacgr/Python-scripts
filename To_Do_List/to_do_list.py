@@ -1,11 +1,11 @@
-import os
+from os import name, system
 from time import sleep
 
 def c_t(): # A function that clears the user's terminal
-    if os.name == "nt":
-        _ = os.system("cls")
+    if name == "nt":
+        _ = system("cls")
     else:
-        _ = os.system("clear")
+        _ = system("clear")
 
 tasks = []
 menu = ["--- To-Do List Manager ---", "1. Add a new task", "2. Add an urgent task (placed at the beginning)",
