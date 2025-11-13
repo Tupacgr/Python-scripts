@@ -36,18 +36,20 @@ while True:
         print(i)
     choice = input("Enter your choice (only the number): ") # Reads the user's choice
     if choice == "1":
-        sk = input("Enter the skill(s) you want to add for candidate A (e.g. Python Sql Html): ")
+        sk = input("Enter the skill(s) you want to add for candidate A seperated by commas (e.g. Python, Sql, Html): ")
         print(f"{sk} successfully inserted.")
-        sk = sk.lower().strip().split()
-        for i in sk:
-            a_skills.add(i)
+        sk = sk.lower().strip().split(",")
+        for i in range(len(sk)):
+            sk[i] = sk[i].strip()
+            a_skills.add(sk[i])
         sleep(1) # Waits for 1 second before clearing the terminal
     elif choice == "2":
-        sk = input("Enter the skill(s) you want to add for candidate B (e.g. Python Sql Html): ")
+        sk = input("Enter the skill(s) you want to add for candidate B seperated by commas (e.g. Python, Sql, Html): ")
         print(f"{sk} successfully inserted.") 
-        sk = sk.lower().strip().split()
-        for i in sk:
-            b_skills.add(i)
+        sk = sk.lower().strip().split(",")
+        for i in range(len(sk)):
+            sk[i] = sk[i].strip()
+            b_skills.add(sk[i])
         sleep(1) # Waits for 1 second before clearing the terminal
     elif choice == "3":
         new = a_skills.intersection(b_skills)

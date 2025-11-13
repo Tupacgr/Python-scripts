@@ -24,6 +24,7 @@ This script utilizes Python **Sets** to perform logical operations on candidate 
 ## 📅 Version History
 
 * **v1.0** - Initial Release: Basic set operations and menu navigation.
+* **v1.1** - 1.1 Release: Updated the first 2 user choices from the menu to prevent incorrect splitting of multi-word skills (e.g., "Data Science").
 
 ---
 *Created by [Fronx]*
