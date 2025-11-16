@@ -10,7 +10,7 @@ def main(f, a, b, Ex, Ef):
         m = (a + b)/2
         n += 1
         print(f"{n}, {a:.4f}, {b:.4f}, {m:.4f}, {f(a):.4f}, {f(b):.4f}, {f(m):.4f}")
-        if (b-a)/2 < Ex or abs(f(m)) < Ef: # Stopping criteria
+        if (b-a)/2 <= Ex or abs(f(m)) <= Ef: # Stopping criteria
             print(f"The estimated root is {m}")
             break
         else:
