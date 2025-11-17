@@ -87,14 +87,20 @@ while True:
         if c == "A":
             sk = input("Enter the skill name you want to remove from candidate A: ")
             sk = sk.strip().lower()
-            a_skills.discard(sk)
-            print(f"{sk.capitalize()} successfully removed")
+            if sk in a_skills:
+                a_skills.remove(sk)
+                print(f"{sk.capitalize()} successfully removed")
+            else:
+                print(f"{sk.capitalize()} not found")
             sleep(1) # Waits for 1 second before clearing the terminal
-        else:
+        elif c == "B":
             sk = input("Enter the skill name you want to remove from candidate B: ")
             sk = sk.strip().lower()
-            b_skills.discard(sk)
-            print(f"{sk.capitalize()} successfully removed")
+            if sk in b_skills:
+                b_skills.remove(sk)
+                print(f"{sk.capitalize()} successfully removed")
+            else:
+                print(f"{sk.capitalize()} not found")
             sleep(1) # Waits for 1 second before clearing the terminal
     elif choice == "9":
         while True:
