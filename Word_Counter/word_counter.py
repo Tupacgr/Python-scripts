@@ -1,15 +1,15 @@
-x = "I love python! 1!!Hello My name is John"
-y = ""
+x = input("Enter the text: ")
+y = list()
 
 for i in x:
-    if "a" <= i.lower() <= "z":
-        y += i
-    else:
-        y += " "
+    if i.isalpha():
+        y.append(i)
+    elif y and y[len(y) - 1] != " ":
+        y.append(" ")
 
-x = y
-x = x.split()
-length = len(x)
+y = "".join(y)
+y = y.split()
+length = len(y)
 
 if length == 1:
     print("The text contains 1 word.")
