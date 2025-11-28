@@ -22,23 +22,15 @@ def comp(check):
     return choice(check)
 
 def outcome(user, comp):  # The function that defines who wins
-    if user == comp:
+    wins = {"rock": "scissors",
+            "paper": "rock",
+            "scissors": "paper"}
+    if user in wins and wins[user] == comp:
+        return "You"
+    elif comp in wins and wins[comp] == user:
+        return "The Computer"
+    else:
         return "No one (it was a tie)"
-    elif user == "rock":
-        if comp == "scissors":
-            return "You"
-        else:
-            return "The Computer"
-    elif user == "paper":
-        if comp == "rock":
-            return "You"
-        else:
-            return "The Computer"
-    elif user == "scissors":
-        if comp == "paper":
-            return "You"
-        else:
-            return "The Computer"
 
 
 print("Play 'Rock Paper Scissors' with your computer!")
