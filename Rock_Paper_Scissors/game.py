@@ -38,6 +38,11 @@ score = [0, 0]
 while True:
     uschoice = valid({"rock", "paper", "scissors", "q"}) # Input Validation
     if uschoice == "q":
+        print(f"Order to quit was given. The score is (You - Computer): {score[0]} - {score[1]}")
+        print("Going to quit in:")
+        for i in range(3,0,-1):
+            print(i)
+            sleep(1)
         break
     cochoice = choice(("rock", "paper", "scissors")) # Computer's Choice
     print(f"The computer chose {cochoice}.")

@@ -17,6 +17,7 @@ This script utilizes Python **Control Flow** and **Randomization** to simulate m
 * **v1.0** - Initial Release: Main game.
 * **v1.1** - 1.1 Release: Switched to Data-Driven Logic. Code became more readable.
 * **v1.2** - 1.2 Release: Added a scoring system.
+* **v1.3** - 1.3 Release: Improved exit behavior.
 
 ---
 *Created by [Fronx]*
