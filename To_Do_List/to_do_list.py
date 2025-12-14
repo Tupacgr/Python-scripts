@@ -9,7 +9,7 @@ def c_t(): # A function that clears the user's terminal
 
 tasks = []
 menu = ["--- To-Do List Manager ---", "1. Add a new task", "2. Add an urgent task (placed at the beginning)",
-         "3. See all the active tasks", "4. Task Completion (removes the task you will provide)", "5. Clears all tasks", "6. Quit"]
+         "3. See all the active tasks", "4. Task Completion (removes the task you will provide)", "5. Clear all tasks", "6. Save my tasks (as a tasks.txt file)", "7. Quit"]
 
 while True:
     c_t()
@@ -72,8 +72,25 @@ while True:
         sleep(2) # Waits for 2 seconds before clearing the terminal
 
     elif uc == 6:
+        print("Your tasks were saved in a tasks.txt file.")
+        with open("tasks.txt", "w") as f: # File creation
+            ctasks = tasks.copy()
+            ctasks.sort() # Sorts the new list alphabetically
+            f.write("The active tasks (sorted alphabetically) are: ")
+            f.write("\n")
+            for i in range(len(ctasks)):
+                f.write(f"{i+1}. {ctasks[i].capitalize()}")
+                f.write("\n")
+            f.write("\n")
+            f.write("The active tasks (not sorted) are: ")
+            f.write("\n")
+            for i in range(len(tasks)):
+                f.write(f"{i+1}. {tasks[i].capitalize()}")
+                f.write("\n")
+        sleep(1) # Waits for 1 second before clearing the terminal
+    elif uc == 7:
         print("Going to quit in:")
         for i in range(1,4):
             print(i)
-            sleep(1) # Waits for 3 seconds before clearing the terminal
+            sleep(1) # Waits for 1 second before clearing the terminal
         break
