@@ -4,7 +4,7 @@ A Python CLI tool designed to manage library assets and member transactions usin
 
 ## 📝 Description
 
-This script simulates a real-world library system. It manages the lifecycle of books and member interactionsjust like real-world libraries (e.g., borrowing limits, stock availability, and ownership verification).
+This script simulates a real-world library system. It manages the lifecycle of books and member interactions just like real-world libraries (e.g., borrowing limits, stock availability, and ownership verification).
 
 ## 🚀 Features
 
