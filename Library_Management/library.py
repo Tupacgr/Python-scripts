@@ -37,8 +37,8 @@ class Library:
             msg = "No_User"
             print("There is no such member!")
         if msg == "Times_Correct":
+            msg1 = ""
             for i in self.books:
-                msg1 = ""
                 if isbn == i.isbn:
                     if i.status == "Available":
                         i.status = "Not_Available"
@@ -50,9 +50,9 @@ class Library:
                         msg1 = "Available_False"
                         print(f"The book {i.title} is not available.")
                     break
-                if msg1 == "":
-                    msg1 = "No_Book"
-                    print("There is no such book.")
+            if msg1 == "":
+                msg1 = "No_Book"
+                print("There is no such book.")
 
     def ret(self, id, isbn):
         msg = ""
@@ -78,8 +78,31 @@ class Library:
                 i.status = "Available"
                 print(f"{i.title} returned by {c.name}")
             elif msg1 == "ISBN_Correct": print("The book was not lended to you.")
-    def grep(self):
-        pass
+
+    def by_title(self):
+        title = input("Enter the book's Titile in lowercase: ").strip().lower().capitalize()
+        flag = False
+        for i in self.books:
+            if title == i.title:
+                flag = True
+                print(f"The book belongs to the library's collection.")
+                if i.status == "Available": print(f"The {title} is available for lending.")
+                else: print(f"Howerver, the {title} is not available for lending right now.")
+                break
+        if not(flag): print("There is no such book in the library.")
+
+    def by_isbn(self):
+        isbn = str(input("Enter the book's ISBN: ")).strip()
+        flag = False
+        for i in self.books:
+            if isbn == i.isbn:
+                flag = True
+                print(f"The ISBN you provided corresponds to the {i.title} and it belongs to the library's collection.")
+                if i.status == "Available": print(f"The {i.title} is available for lending.")
+                else: print(f"However, the {i.title} is not available for lending right now.")
+                break
+        if not(flag): print("The ISBN you provided does not math with any of the library's books.")
+
 
 def add_book(library):
     title = input("Enter the Title: ").strip().capitalize()
@@ -108,29 +131,47 @@ def return_book(library):
     library.ret(id, isbn)
     sleep(2)
 
+def ex():
+    while True:
+        choice = input("Are you sure you want to exit(Y/N)? ").strip().upper()
+        if choice in ("Y","N","YES","NO"): break
+    if choice in ("Y","YES"):
+        print("Going to exit in:")
+        for i in range(1,4):
+            print(i)
+            sleep(1)
+        exit()
+
+def search(library):
+    while True:
+        pre = input("Do you want to search a book by its Title or by its ISBN(T/I)? ").strip().upper()
+        if pre in ("I","ISBN", "TITLE", "T"): break
+        else: 
+            print("Please enter a valid choice (T for Title or I for ISBN).")
+            sleep(1)
+    if pre in ("T","TITLE"): library.by_title()
+    else: library.by_isbn()
+    sleep(2)
+
 l1 = Library()
 while True:
-    menu = """--- Library Management System --- \n1. Add Book \n2. Register Member \n3. Borrow Book \n4. Return Book \n5. Exit"""
+    menu = """--- Library Management System --- \n1. Add Book \n2. Register Member \n3. Borrow Book \n4. Return Book \n5. Search a book\n6. Exit"""
     print(menu)
     while True:
         flag = True
         c = int(input("Enter a choice: "))
-        if c in (1,2,3,4,5): 
-            if c != 5:
+        if c in (1,2,3,4,5,6): 
+            if c != 6:
                 print("Loading...")
                 break
-            else:
-                flag = False
-                print("System going to exit in:")
-                for i in range(3):
-                    print(i+1)
-                    sleep(1)
-                break
+            else: ex()
         else: 
             print("Please enter a valid choice")
             sleep(1)
+
     if not(flag): break
     if c == 1: add_book(l1)
     elif c == 2: register_member(l1)
     elif c == 3: borrow_book(l1)
     elif c == 4: return_book(l1)
+    elif c == 5: search(l1)
