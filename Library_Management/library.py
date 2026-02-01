@@ -101,12 +101,28 @@ class Library:
                 if i.status == "Available": print(f"The {i.title} is available for lending.")
                 else: print(f"However, the {i.title} is not available for lending right now.")
                 break
-        if not(flag): print("The ISBN you provided does not math with any of the library's books.")
+        if not(flag): print("The ISBN you provided does not match with any of the library's books.")
+    
+    def show(self, choice):
+        if choice == "F":
+            print("The library has the following books:")
+            for i in self.books: print(f"{i.title} by {i.author} (ISBN: {i.isbn})")
+        else:
+            flag = False
+            c = 0
+            for i in self.books:
+                if i.status == "Available":
+                    if c == 0:
+                        c = 1
+                        flag = True
+                        print("The available books are: ")
+                    print(f"{i.title} by {i.author} (ISBN: {i.isbn})")
+            if not(flag): print("No books are available right now.")
 
 
 def add_book(library):
-    title = input("Enter the Title: ").strip().capitalize()
-    author = input("Enter the Author: ").strip().capitalize()
+    title = input("Enter the Title: ").strip().lower().capitalize()
+    author = input("Enter the Author: ").strip().lower().capitalize()
     isbn = str(input("Enter the ISBN: ")).strip()
     library.add(title, author, isbn)
     print(f"Book {title.capitalize()} added successfully.")
@@ -153,15 +169,26 @@ def search(library):
     else: library.by_isbn()
     sleep(2)
 
+def show_books(library):
+    while True:
+        choice = input("You want a full list books or only the available ones (F,A)? ").strip().upper()
+        if choice in ("F","FULL","A","AVAILABLE"): break
+        else: 
+            print("Please enter a valid choice (F for a full list or A for only the available books.)")
+            sleep(1)
+    choice = "F" if choice == "FULL" else ("A" if choice == "AVAILABLE" else choice)
+    library.show(choice)
+    sleep(2)
+
 l1 = Library()
 while True:
-    menu = """--- Library Management System --- \n1. Add Book \n2. Register Member \n3. Borrow Book \n4. Return Book \n5. Search a book\n6. Exit"""
+    menu = """--- Library Management System --- \n1. Add Book \n2. Register Member \n3. Borrow Book \n4. Return Book \n5. Search a book\n6. Show Books\n7. Exit"""
     print(menu)
     while True:
         flag = True
         c = int(input("Enter a choice: "))
-        if c in (1,2,3,4,5,6): 
-            if c != 6:
+        if c in (1,2,3,4,5,6,7): 
+            if c != 7:
                 print("Loading...")
                 break
             else: ex()
@@ -175,3 +202,4 @@ while True:
     elif c == 3: borrow_book(l1)
     elif c == 4: return_book(l1)
     elif c == 5: search(l1)
+    elif c == 6: show_books(l1)

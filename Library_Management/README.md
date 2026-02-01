@@ -24,6 +24,7 @@ This script simulates a real-world library system. It manages the lifecycle of b
 
 * **v1.0** - Initial Release: Advanced system with Book/Member management, secure Borrow/Return logic.
 * **v1.5** - 1.5 Release: Added a **Search** option where users can check if a book exists (and if yes, check for its availability) in the library. Also, fixed some logical errors.
+* **v1.6** - 1.6 Release: Added a **Show Books** option where users can view the entire library catalog. They can also choose to see only the books that are available for lending. Made some small improvements to prevent issues with book titles.
 
 ---
 *Created by [FRONX]*
