@@ -67,9 +67,9 @@ class Library:
             for i in self.books:
                 if isbn == i.isbn:
                     msg1 = "ISBN_Correct"
-                    if i. status == "Available":
+                    if i.status == "Available":
                         msg1 = "Already_Available"
-                        break
+                    break
             if msg1 == "": print("There is no such book.")
             elif msg1 == "Already_Available": print("The book is already available.")
             elif msg1 == "ISBN_Correct" and i.isbn in c.lended: 
@@ -115,7 +115,7 @@ class Library:
                     if c == 0:
                         c = 1
                         flag = True
-                        print("The available books are: ")
+                        print("The available books are:")
                     print(f"{i.title} by {i.author} (ISBN: {i.isbn})")
             if not(flag): print("No books are available right now.")
 
@@ -180,26 +180,28 @@ def show_books(library):
     library.show(choice)
     sleep(2)
 
-l1 = Library()
-while True:
-    menu = """--- Library Management System --- \n1. Add Book \n2. Register Member \n3. Borrow Book \n4. Return Book \n5. Search a book\n6. Show Books\n7. Exit"""
-    print(menu)
+def main():
+    l1 = Library()
     while True:
-        flag = True
-        c = int(input("Enter a choice: "))
-        if c in (1,2,3,4,5,6,7): 
-            if c != 7:
-                print("Loading...")
-                break
-            else: ex()
-        else: 
-            print("Please enter a valid choice")
-            sleep(1)
+        menu = """--- Library Management System --- \n1. Add Book \n2. Register Member \n3. Borrow Book \n4. Return Book \n5. Search a book\n6. Show Books\n7. Exit"""
+        print(menu)
+        while True:
+            c = int(input("Enter a choice: "))
+            if c in (1,2,3,4,5,6,7): 
+                if c != 7:
+                    print("Loading...")
+                    break
+                else: ex()
+            else: 
+                print("Please enter a valid choice")
+                sleep(1)
 
-    if not(flag): break
-    if c == 1: add_book(l1)
-    elif c == 2: register_member(l1)
-    elif c == 3: borrow_book(l1)
-    elif c == 4: return_book(l1)
-    elif c == 5: search(l1)
-    elif c == 6: show_books(l1)
+        if c == 1: add_book(l1)
+        elif c == 2: register_member(l1)
+        elif c == 3: borrow_book(l1)
+        elif c == 4: return_book(l1)
+        elif c == 5: search(l1)
+        elif c == 6: show_books(l1)
+
+if __name__ == "__main__":
+    main()

@@ -23,8 +23,9 @@ This script simulates a real-world library system. It manages the lifecycle of b
 ## 📅 Version History
 
 * **v1.0** - Initial Release: Advanced system with Book/Member management, secure Borrow/Return logic.
-* **v1.5** - 1.5 Release: Added a **Search** option where users can check if a book exists (and if yes, check for its availability) in the library. Also, fixed some logical errors.
-* **v1.6** - 1.6 Release: Added a **Show Books** option where users can view the entire library catalog. They can also choose to see only the books that are available for lending. Made some small improvements to prevent issues with book titles.
+* **v1.2** - 1.2 Release: Added a **Search** option where users can check if a book exists (and if yes, check for its availability) in the library. Also, fixed some logical errors.
+* **v1.4** - 1.4 Release: Added a **Show Books** option where users can view the entire library catalog. They can also choose to see only the books that are available for lending. Made some small improvements to prevent issues with book titles.
+* **v1.6** - 1.6 Release: Added a **main** function, so the code only gets executed when the file runs directly and not imported as a module. Also, fixed a small issue in **ret** method of the Library class.
 
 ---
 *Created by [FRONX]*
