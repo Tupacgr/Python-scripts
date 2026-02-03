@@ -13,6 +13,9 @@ This script simulates a real-world library system. It manages the lifecycle of b
 * **Borrowing System:** Lend books to members with automatic checks for availability and a **3-book limit**.
 * **Secure Returns:** Return system that verifies if the member actually possesses the book before accepting it.
 * **Live Status:** Real-time updates of book status ("Available" vs "Not_Available").
+* **Search Book:** Search if a book is in the library's catalog by its Title or by ISBN, and if yes, get informed about its availability.
+* **Show Books:** See all the books the library currently has, with the option of seeing only the available ones.
+
 
 ## 🛠️ Technologies Used
 
